@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<nav class="navbar">
+    <ul>
+        <li class="nav-item" ><button onclick="UserBorrowbookDialog.show()"> 借书</button></li>
+        <li class="nav-item" ><button onclick="UserReturnbookDialog.show()"> 还书</button></li>
+    </ul>
+
+    <dialog id="UserBorrowbookDialog">
+        <div class="form-container">
+            <h2>借书</h2>
+            <form action="userserv" method="post">
+                <div class="form-group">
+                    <label for="booknameorisbn">书名或ISBN</label>
+                    <input type="text" id="booknameorisbn" name="submitinfo" required>
+                </div>
+                <input type="hidden" name="formtype" value="userborrowbook">
+                <div class="form-group">
+                    <input type="submit" value="借书">
+                    <button onclick="UserBorrowbookDialog.close()">取消</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+    <dialog id="UserReturnbookDialog">
+        <div class="form-container">
+            <h2>还书</h2>
+            <form action="userserv" method="post">
+                <div class="form-group">
+                    <label for="returnbook">书名或ISBN</label>
+                    <input type="text" id="returnbook" name="submitbookname"  required>
+                </div>
+                <input type="hidden" name="formtype" value="userreturnbook">
+                <div class="form-group">
+                    <input type="submit" value="还书">
+                    <button onclick="UserReturnbookDialog.close()">取消</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+</nav>
+
+<body>
+<div >
+    <div>
+        <form action="userserv" class="form-group-search" method="post">
+            <input type="text" name="submitinfo"  placeholder="ISBN,书名或all">
+            <input type="hidden" name="formtype" value="usersearchbook">
+            <input type="submit" value="查询">
+        </form>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>书名</th>
+                <th>剩余数量</th>
+                <th>出版社</th>
+                <th>价格</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table></div>
+</div>
+
+
+</body>
+</html>

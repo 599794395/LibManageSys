@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<nav class="navbar">
+    <ul>
+        <li class="nav-item"><a href="admin-usermanagement.html">用户管理</a></li>
+        <li class="nav-item"><a href="admin-bookmanagement.html">图书管理</a></li>
+        <li class="nav-item"><a href="admin-borrowinfo.html">借阅记录</a></li>
+    </ul>
+</nav>
+<body>
+<div >
+    <div>
+        <form action="adminserv" class="form-group-search" method="post">
+            <input type="text" name="submitinfo"  placeholder="ID或姓名或all">
+            <input type="hidden" name="formtype" value="searchuser">
+            <input type="submit" value="查询">
+        </form>
+        <button class="mybutton1" onclick="adddialog.show()">添加</button>
+        <dialog id="adddialog">
+            <div class="form-container">
+                <h2>修改</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="addusername">姓名</label>
+                        <input type="text" id="addusername" name="submitusername"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adduserid">账户</label>
+                        <input type="text" id="adduserid" name="submituserid"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adduserpassword">密码</label>
+                        <input type="text" id="adduserpassword" name="submituserpassword"  required>
+                    </div>
+                    <input type="hidden" name="formtype" value="adduser">
+                    <div class="form-group">
+                        <input type="submit" value="添加">
+                        <button onclick="adddialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <button class="mybutton2" onclick="editdialog.show()">修改</button>
+        <dialog id="editdialog">
+            <div class="form-container">
+                <h2>修改</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="editusername">姓名</label>
+                        <input type="text" id="editusername" name="submitusername"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edituserid">账户</label>
+                        <input type="text" id="edituserid" name="submituserid"  placeholder="账户不可修改" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edituserpassword">密码</label>
+                        <input type="text" id="edituserpassword" name="submituserpassword"  required>
+                    </div>
+                    <input type="hidden" name="formtype" value="edituser">
+                    <div class="form-group">
+                        <input type="submit" value="修改">
+                        <button onclick="editdialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <button class="mybutton3" onclick="deldialog.show()">删除</button>
+        <dialog id="deldialog">
+            <div class="form-container">
+                <h2>修改</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="deluserid">输入账号</label>
+                        <input type="text" id="deluserid" name="submituserid"  required>
+                    </div>
+                    <input type="hidden" name="formtype" value="deluser">
+                    <div class="form-group">
+                        <input type="submit" value="删除">
+                        <button onclick="deldialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>账号</th>
+                <th>密码</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

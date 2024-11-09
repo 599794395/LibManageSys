@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<nav class="navbar">
+    <ul>
+        <li class="nav-item"><a href="admin-usermanagement.html">用户管理</a></li>
+        <li class="nav-item"><a href="admin-bookmanagement.html">图书管理</a></li>
+        <li class="nav-item"><a href="admin-borrowinfo.html">借阅记录</a></li>
+    </ul>
+</nav>
+<body>
+<div >
+    <div>
+        <form action="adminserv" class="form-group-search" method="post">
+            <input type="text" name="submitinfo"  placeholder="ISBN,书名或all">
+            <input type="hidden" name="formtype" value="searchbook">
+            <input type="submit" value="查询">
+        </form>
+        <button class="mybutton1" onclick="adddialog.show()">添加</button>
+        <dialog id="adddialog">
+            <div class="form-container">
+                <h2>修改</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="addbookname">书名</label>
+                        <input type="text" id="addbookname" name="submitbookname" placeholder="书名不可修改" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addisbn">ISBN</label>
+                        <input type="text" id="addisbn" name="submitISBN" placeholder="ISBN不可修改" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addquantity">数量</label>
+                        <input type="number" id="addquantity" name="submitquantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addprice">价格</label>
+                        <input type="number" id="addprice" name="submitprice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addpublish">价格</label>
+                        <input type="number" id="addpublish" name="submitpublish" required>
+                    </div>
+                    <input type="hidden" name="formtype" value="editbook">
+                    <div class="form-group">
+                        <input type="submit" value="修改">
+                        <button onclick="adddialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <button class="mybutton2" value="" onclick="editdialog.show()">修改</button>
+        <dialog id="editdialog">
+            <div class="form-container">
+                <h2>修改</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="editname">书名</label>
+                        <input type="text" id="editname" name="submitbookname" placeholder="书名不可修改" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="editisbn" name="submitISBN" placeholder="ISBN不可修改" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editquantity">数量</label>
+                        <input type="text" id="editquantity" name="submitquantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editprice">价格</label>
+                        <input type="text" id="editprice" name="submitprice" required>
+                    </div>
+                    <input type="hidden" name="formtype" value="editbook">
+                    <div class="form-group">
+                        <input type="submit" value="修改">
+                        <button onclick="editdialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <button class="mybutton3" onclick="deldialog.show()">删除</button>
+        <dialog id="deldialog">
+            <div class="form-container">
+                <h2>删除</h2>
+                <form action="adminserv" method="post">
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" id="isbn" name="submitISBN" required>
+                    </div>
+                    <input type="hidden" name="formtype" value="deletebook">
+                    <div class="form-group">
+                        <input type="submit" value="删除">
+                        <button onclick="deldialog.close()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>书名</th>
+                <th>剩余数量</th>
+                <th>出版社</th>
+                <th>价格</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
